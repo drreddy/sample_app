@@ -1,0 +1,28 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<div style="float:right;">
+	<%= form_tag users_path, :method => 'get' do%>
+		<div style="float:left"><%= text_field_tag :search, params[:search], placeholder: "Search for users..." %></div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<div style="float:right"><%= submit_tag "Search", class: "btn btn-large btn-info", :name => 'nil' %></div>
+	<% end %>
+</div>
+<br/>
+<br/>
+<br/>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user, size: 52 %>
+      <%= link_to user.name, user %>
+    </li>
+	<% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
