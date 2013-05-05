@@ -1,1 +1,1 @@
-This os a twitter clone app done by following the online tutorial of Michael Hartl which can be found at http://ruby.railstutorial.org/chapters
+This is a twitter clone app done by following the online tutorial of Michael Hartl which can be found at http://ruby.railstutorial.org/chapters and my own addition of "favourite search" feature done by using nokogiri.
